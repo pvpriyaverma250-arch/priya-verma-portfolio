@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Priya Verma — AI Trainer & Full Stack Engineer</title>
+<meta name="description" content="Portfolio of Priya Verma — AI Trainer, Data Annotation Specialist & Full Stack Engineer based in Pune, India."/>
+<meta property="og:title" content="Priya Verma — Portfolio"/>
+<meta property="og:description" content="AI Trainer · Data Annotation · Full Stack Engineer · Pune"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+:root{
+  --navy:#0B1120;--navy2:#111827;--navy3:#1E293B;
+  --mint:#00C9A7;--mint2:#00E5BE;--mint3:#7FFFD4;
+  --gold:#F59E0B;--pink:#EC4899;--blue:#3B82F6;
+  --white:#F0F6FF;--gray:#94A3B8;
+  --border:rgba(0,201,167,0.2);
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--navy);
+  font-family:'Space Grotesk',sans-serif;
+  color:var(--white);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ── GRID BG ── */
+.grid-bg{
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    linear-gradient(rgba(0,201,167,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,201,167,0.04) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(11,17,32,0.85);
+  backdrop-filter:blur(16px);
+  border-bottom:0.5px solid var(--border);
+  padding:0 5%;
+  display:flex;align-items:center;justify-content:space-between;height:60px;
+}
+.nav-logo{
+  font-family:'Space Mono',monospace;font-size:14px;color:var(--mint);
+  letter-spacing:1px;
+}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{
+  font-size:13px;color:var(--gray);text-decoration:none;
+  letter-spacing:0.5px;transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--mint)}
+
+/* ── MAIN CONTAINER ── */
+main{
+  max-width:1100px;margin:0 auto;padding:100px 5% 60px;
+  position:relative;z-index:1;
+}
+
+/* ── HERO ── */
+.hero{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  padding:60px 0 48px;gap:40px;flex-wrap:wrap;
+}
+.hero-left{flex:1;min-width:280px}
+
+.available-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(0,201,167,0.1);
+  border:1px solid var(--border);
+  border-radius:100px;padding:5px 16px;
+  font-family:'Space Mono',monospace;font-size:11px;
+  color:var(--mint);letter-spacing:1.5px;margin-bottom:20px;
+}
+.available-tag .dot{
+  width:7px;height:7px;border-radius:50%;background:var(--mint);
+  animation:blink 2s infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+
+.hero-name{font-size:clamp(48px,7vw,76px);font-weight:700;line-height:1;letter-spacing:-3px;margin-bottom:16px}
+.hero-name .first{color:var(--white)}
+.hero-name .last{color:var(--mint)}
+
+.hero-role{font-size:16px;color:var(--gray);margin-bottom:28px;line-height:1.6}
+.hero-role span{color:var(--mint3);font-weight:500}
+
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--mint);color:#0B1120;
+  font-weight:600;font-size:14px;padding:11px 24px;
+  border-radius:100px;text-decoration:none;transition:all 0.2s;
+  border:none;cursor:pointer;
+}
+.btn-primary:hover{background:var(--mint2);transform:translateY(-1px)}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:var(--mint);
+  font-weight:500;font-size:14px;padding:10px 24px;
+  border-radius:100px;text-decoration:none;
+  border:1px solid var(--border);transition:all 0.2s;cursor:pointer;
+}
+.btn-outline:hover{background:rgba(0,201,167,0.08);transform:translateY(-1px)}
+
+.hero-right{display:flex;flex-direction:column;gap:10px;align-items:flex-end;flex-shrink:0}
+.contact-pill{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,0.04);
+  border:0.5px solid rgba(255,255,255,0.1);
+  border-radius:100px;padding:8px 16px;
+  font-size:13px;color:var(--gray);text-decoration:none;
+  transition:border-color 0.2s;
+}
+.contact-pill:hover{border-color:var(--mint);color:var(--white)}
+.contact-pill i{font-size:14px;color:var(--mint)}
+
+/* ── DIVIDER ── */
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:8px 0}
+
+/* ── STATS ── */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:0 0 56px}
+.stat-card{
+  background:rgba(255,255,255,0.03);
+  border:0.5px solid var(--border);
+  border-radius:16px;padding:24px 20px;
+  position:relative;overflow:hidden;
+  transition:all 0.3s;cursor:default;
+}
+.stat-card:hover{border-color:var(--mint);background:rgba(0,201,167,0.05);transform:translateY(-3px)}
+.stat-card::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(0,201,167,0.06),transparent);
+  opacity:0;transition:opacity 0.3s;
+}
+.stat-card:hover::after{opacity:1}
+.stat-icon{font-size:20px;color:rgba(0,201,167,0.3);margin-bottom:12px}
+.stat-num{
+  font-family:'Space Mono',monospace;font-size:38px;font-weight:700;
+  color:var(--mint);line-height:1;letter-spacing:-1px;
+}
+.stat-sup{font-size:20px;vertical-align:super;color:var(--mint3)}
+.stat-label{font-size:11px;color:var(--gray);margin-top:8px;letter-spacing:1px;text-transform:uppercase}
+
+/* ── SECTION TITLES ── */
+.section-title{
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--mint);font-weight:500;margin-bottom:20px;
+  display:flex;align-items:center;gap:12px;
+}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+
+section{margin-bottom:56px}
+
+/* ── SKILLS ── */
+.skills-cloud{display:flex;flex-wrap:wrap;gap:10px}
+.skill-tag{
+  padding:6px 14px;border-radius:100px;
+  font-size:13px;font-weight:500;border:0.5px solid;
+  transition:transform 0.2s;cursor:default;
+}
+.skill-tag:hover{transform:translateY(-2px)}
+.sk-python{background:rgba(59,130,246,0.1);border-color:rgba(59,130,246,0.3);color:#93C5FD}
+.sk-java{background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.3);color:#FCD34D}
+.sk-cpp{background:rgba(236,72,153,0.1);border-color:rgba(236,72,153,0.3);color:#F9A8D4}
+.sk-js{background:rgba(0,201,167,0.1);border-color:rgba(0,201,167,0.3);color:#7FFFD4}
+.sk-react{background:rgba(6,182,212,0.1);border-color:rgba(6,182,212,0.3);color:#67E8F9}
+.sk-node{background:rgba(34,197,94,0.1);border-color:rgba(34,197,94,0.3);color:#86EFAC}
+.sk-mongo{background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#6EE7B7}
+.sk-ai{background:rgba(139,92,246,0.1);border-color:rgba(139,92,246,0.3);color:#C4B5FD}
+.sk-gen{background:rgba(244,63,94,0.1);border-color:rgba(244,63,94,0.3);color:#FDA4AF}
+.sk-dsa{background:rgba(251,146,60,0.1);border-color:rgba(251,146,60,0.3);color:#FED7AA}
+.sk-git{background:rgba(148,163,184,0.08);border-color:rgba(148,163,184,0.2);color:#CBD5E1}
+
+/* ── TWO COL ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+/* ── CARDS ── */
+.card{
+  background:rgba(255,255,255,0.03);
+  border:0.5px solid rgba(255,255,255,0.08);
+  border-radius:16px;padding:28px;
+  transition:border-color 0.3s;
+}
+.card:hover{border-color:var(--border)}
+
+/* ── CERTS ── */
+.cert-list{display:flex;flex-direction:column;gap:12px}
+.cert-item{
+  display:flex;align-items:center;gap:14px;
+  padding:12px 16px;
+  background:rgba(255,255,255,0.02);
+  border:0.5px solid rgba(255,255,255,0.06);
+  border-radius:12px;transition:all 0.2s;
+}
+.cert-item:hover{border-color:var(--border);background:rgba(0,201,167,0.04)}
+.cert-badge{
+  width:36px;height:36px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+}
+.cert-badge.ds{background:rgba(59,130,246,0.15);color:#60A5FA}
+.cert-badge.ai{background:rgba(139,92,246,0.15);color:#A78BFA}
+.cert-badge.dsa{background:rgba(245,158,11,0.15);color:#FCD34D}
+.cert-name{font-size:14px;font-weight:500;color:var(--white)}
+.cert-sub{font-size:12px;color:var(--gray);margin-top:3px}
+
+/* ── PROJECTS ── */
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.proj-card{
+  background:rgba(255,255,255,0.02);
+  border:0.5px solid rgba(255,255,255,0.07);
+  border-radius:16px;padding:22px 24px;
+  position:relative;overflow:hidden;
+  transition:all 0.3s;cursor:default;
+}
+.proj-card:hover{
+  border-color:var(--border);
+  background:rgba(0,201,167,0.04);
+  transform:translateY(-3px);
+}
+.proj-num{
+  font-family:'Space Mono',monospace;font-size:56px;font-weight:700;
+  color:rgba(0,201,167,0.06);
+  position:absolute;right:14px;bottom:4px;
+  line-height:1;letter-spacing:-2px;pointer-events:none;
+  transition:color 0.3s;
+}
+.proj-card:hover .proj-num{color:rgba(0,201,167,0.1)}
+.proj-name{font-size:15px;font-weight:600;color:var(--white);margin-bottom:8px}
+.proj-desc{font-size:13px;color:var(--gray);line-height:1.7;margin-bottom:12px}
+.proj-stack{display:flex;gap:6px;flex-wrap:wrap}
+.stack-tag{
+  font-size:10px;padding:3px 10px;border-radius:100px;
+  background:rgba(0,201,167,0.08);
+  border:0.5px solid rgba(0,201,167,0.2);
+  color:var(--mint3);
+  font-family:'Space Mono',monospace;letter-spacing:0.5px;
+}
+
+/* ── EDU + STATUS ── */
+.bottom-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.edu-block{padding:24px;background:rgba(255,255,255,0.02);border:0.5px solid rgba(255,255,255,0.07);border-radius:16px}
+.edu-deg{font-size:16px;font-weight:600;color:var(--white);margin-bottom:6px}
+.edu-school{font-size:14px;color:var(--mint);margin-bottom:4px}
+.edu-loc{font-size:13px;color:var(--gray)}
+
+.status-block{
+  padding:24px;
+  background:linear-gradient(135deg,rgba(0,201,167,0.08),rgba(0,201,167,0.02));
+  border:0.5px solid var(--border);border-radius:16px;
+}
+.status-label{font-size:11px;color:var(--mint);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.status-title{font-size:20px;font-weight:700;color:var(--white);margin-bottom:4px}
+.status-sub{font-size:13px;color:var(--gray);margin-bottom:12px}
+.status-sal{
+  font-family:'Space Mono',monospace;font-size:13px;
+  color:var(--mint3);display:inline-block;
+  background:rgba(0,201,167,0.08);border:0.5px solid var(--border);
+  padding:4px 12px;border-radius:100px;
+}
+
+/* ── FOOTER ── */
+footer{
+  text-align:center;padding:32px 5%;
+  border-top:0.5px solid var(--border);
+  color:var(--gray);font-size:13px;
+  position:relative;z-index:1;
+}
+footer a{color:var(--mint);text-decoration:none}
+
+/* ── SCROLL ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .proj-grid{grid-template-columns:1fr}
+  .two-col,.bottom-row{grid-template-columns:1fr}
+  .hero{flex-direction:column}
+  .hero-right{align-items:flex-start}
+  nav .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="grid-bg" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">PV.dev</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="btn-primary" href="mailto:pvpriyaverma250@gmail.com" style="padding:8px 18px;font-size:13px">
+    <i class="ti ti-mail" aria-hidden="true"></i> Hire Me
+  </a>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section id="about" class="hero">
+    <div class="hero-left">
+      <div class="available-tag"><span class="dot"></span> AVAILABLE FOR HIRE</div>
+      <h1 class="hero-name">
+        <span class="first">Priya</span><br/>
+        <span class="last">Verma</span>
+      </h1>
+      <p class="hero-role">
+        <span>AI Trainer</span> · Data Annotation Specialist<br/>
+        <span>Full Stack Engineer</span> · Fresher · Pune, India
+      </p>
+      <div class="hero-btns">
+        <a href="mailto:pvpriyaverma250@gmail.com" class="btn-primary">
+          <i class="ti ti-send" aria-hidden="true"></i> Get in Touch
+        </a>
+        <a href="https://linkedin.com/in/priya-verma-758097314" target="_blank" rel="noopener" class="btn-outline">
+          <i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn
+        </a>
+        <a href="#projects" class="btn-outline">
+          <i class="ti ti-layout-grid" aria-hidden="true"></i> My Projects
+        </a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <a class="contact-pill" href="mailto:pvpriyaverma250@gmail.com">
+        <i class="ti ti-mail" aria-hidden="true"></i> pvpriyaverma250@gmail.com
+      </a>
+      <a class="contact-pill" href="tel:+918175912267">
+        <i class="ti ti-phone" aria-hidden="true"></i> +91 81759 12267
+      </a>
+      <div class="contact-pill">
+        <i class="ti ti-map-pin" aria-hidden="true"></i> Pune, Maharashtra, India
+      </div>
+      <a class="contact-pill" href="https://linkedin.com/in/priya-verma-758097314" target="_blank" rel="noopener">
+        <i class="ti ti-brand-linkedin" aria-hidden="true"></i> linkedin/priya-verma-758097314
+      </a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats reveal">
+    <div class="stat-card">
+      <div class="stat-icon"><i class="ti ti-code" aria-hidden="true"></i></div>
+      <div class="stat-num">5<span class="stat-sup">+</span></div>
+      <div class="stat-label">Languages</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon"><i class="ti ti-trophy" aria-hidden="true"></i></div>
+      <div class="stat-num">3</div>
+      <div class="stat-label">Certifications</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon"><i class="ti ti-stack-2" aria-hidden="true"></i></div>
+      <div class="stat-num">4</div>
+      <div class="stat-label">Projects Built</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon"><i class="ti ti-puzzle" aria-hidden="true"></i></div>
+      <div class="stat-num">100<span class="stat-sup">+</span></div>
+      <div class="stat-label">DSA Problems</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SKILLS -->
+  <section id="skills" class="reveal" style="margin-top:48px">
+    <div class="section-title"><i class="ti ti-terminal-2" aria-hidden="true"></i> Tech skills</div>
+    <div class="skills-cloud">
+      <span class="skill-tag sk-python">Python</span>
+      <span class="skill-tag sk-java">Java</span>
+      <span class="skill-tag sk-cpp">C++</span>
+      <span class="skill-tag sk-js">JavaScript ES6+</span>
+      <span class="skill-tag sk-react">React.js</span>
+      <span class="skill-tag sk-node">Node.js</span>
+      <span class="skill-tag sk-mongo">MongoDB</span>
+      <span class="skill-tag sk-js">Express.js</span>
+      <span class="skill-tag sk-react">HTML5 / CSS3</span>
+      <span class="skill-tag sk-ai">Data Annotation</span>
+      <span class="skill-tag sk-gen">Gen AI</span>
+      <span class="skill-tag sk-ai">Prompt Engineering</span>
+      <span class="skill-tag sk-ai">LLM Evaluation</span>
+      <span class="skill-tag sk-dsa">Data Structures & Algorithms</span>
+      <span class="skill-tag sk-git">Git & GitHub</span>
+      <span class="skill-tag sk-git">Jupyter Notebook</span>
+      <span class="skill-tag sk-git">Linux</span>
+      <span class="skill-tag sk-git">Postman</span>
+      <span class="skill-tag sk-git">VS Code</span>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications" class="reveal">
+    <div class="section-title"><i class="ti ti-certificate" aria-hidden="true"></i> Certifications & achievements</div>
+    <div class="cert-list">
+      <div class="cert-item">
+        <div class="cert-badge ds"><i class="ti ti-chart-dots" aria-hidden="true"></i></div>
+        <div>
+          <div class="cert-name">Data Science Masterclass</div>
+          <div class="cert-sub">Comprehensive training in data analysis, ML algorithms & Python libraries</div>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-badge ai"><i class="ti ti-brain" aria-hidden="true"></i></div>
+        <div>
+          <div class="cert-name">ET Gen AI Hackathon Certificate</div>
+          <div class="cert-sub">Built an AI-powered prototype in a competitive Gen AI innovation challenge</div>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-badge dsa"><i class="ti ti-binary-tree" aria-hidden="true"></i></div>
+        <div>
+          <div class="cert-name">DSA Certificate</div>
+          <div class="cert-sub">Solved 100+ problems in Java & C++ — strong foundation in algorithms</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="reveal">
+    <div class="section-title"><i class="ti ti-layout-grid" aria-hidden="true"></i> Projects</div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-num" aria-hidden="true">01</div>
+        <div class="proj-name">Gen AI Hackathon App</div>
+        <div class="proj-desc">AI-powered prototype integrating LLM APIs to automate a real-world workflow. Built and presented in the ET Gen AI Hackathon — earned official certification.</div>
+        <div class="proj-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">JavaScript</span>
+          <span class="stack-tag">LLM APIs</span>
+          <span class="stack-tag">Gen AI</span>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-num" aria-hidden="true">02</div>
+        <div class="proj-name">Full Stack MERN App</div>
+        <div class="proj-desc">Complete MERN stack task management app with JWT authentication, CRUD operations, REST APIs and a live dynamic dashboard.</div>
+        <div class="proj-stack">
+          <span class="stack-tag">React.js</span>
+          <span class="stack-tag">Node.js</span>
+          <span class="stack-tag">MongoDB</span>
+          <span class="stack-tag">Express.js</span>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-num" aria-hidden="true">03</div>
+        <div class="proj-name">DSA Problem Bank</div>
+        <div class="proj-desc">Solved 100+ algorithmic problems covering arrays, trees, graphs, and dynamic programming — documented with time/space complexity analysis. DSA Certified.</div>
+        <div class="proj-stack">
+          <span class="stack-tag">Java</span>
+          <span class="stack-tag">C++</span>
+          <span class="stack-tag">Algorithms</span>
+          <span class="stack-tag">OOP</span>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-num" aria-hidden="true">04</div>
+        <div class="proj-name">Portfolio Website</div>
+        <div class="proj-desc">Responsive personal portfolio with smooth animations, mobile-first design and accessible UI — the very site you are viewing right now.</div>
+        <div class="proj-stack">
+          <span class="stack-tag">HTML5</span>
+          <span class="stack-tag">CSS3</span>
+          <span class="stack-tag">JavaScript</span>
+          <span class="stack-tag">GitHub Pages</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION + STATUS -->
+  <section id="contact" class="bottom-row reveal">
+    <div class="edu-block">
+      <div class="section-title" style="margin-bottom:16px"><i class="ti ti-school" aria-hidden="true"></i> Education</div>
+      <div class="edu-deg">Bachelor of Science (B.Sc.)</div>
+      <div class="edu-school">Ram Manohar Lohia Awadh University</div>
+      <div class="edu-loc">Ayodhya, Uttar Pradesh, India</div>
+    </div>
+    <div class="status-block">
+      <div class="status-label"><i class="ti ti-sparkles" aria-hidden="true"></i> Current status</div>
+      <div class="status-title">Fresher · Open to Relocation</div>
+      <div class="status-sub">Day shift · Mon–Fri · Full-time preferred</div>
+      <span class="status-sal">Min. salary → ₹5,00,000 p.a.</span>
+      <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+        <a href="mailto:pvpriyaverma250@gmail.com" class="btn-primary" style="font-size:13px;padding:9px 20px">
+          <i class="ti ti-mail" aria-hidden="true"></i> Email Me
+        </a>
+        <a href="https://linkedin.com/in/priya-verma-758097314" target="_blank" rel="noopener" class="btn-outline" style="font-size:13px;padding:8px 20px">
+          <i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>Designed & built by <strong style="color:var(--mint)">Priya Verma</strong> · Pune, India · 2024</p>
+  <p style="margin-top:6px;font-size:12px">
+    <a href="mailto:pvpriyaverma250@gmail.com">pvpriyaverma250@gmail.com</a> ·
+    <a href="tel:+918175912267">+91 81759 12267</a>
+  </p>
+</footer>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible')}});
+},{threshold:0.1});
+reveals.forEach(r=>observer.observe(r));
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+</script>
+</body>
+</html>
